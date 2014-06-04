@@ -2,13 +2,13 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=254083784778279&version=v2.0";
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=2548442078580793&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
 window.fbAsyncInit = function () {
             FB.init({
-                appId: ' YOUR ID HERE   ', 
+                appId:'548442078580793', 
                 xfbml: true,
                 version: 'v2.0'
             });
