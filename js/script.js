@@ -1,3 +1,4 @@
+
 window.fbAsyncInit = function () {
             FB.init({
                 appId:'425373804271654', 
@@ -17,7 +18,7 @@ window.fbAsyncInit = function () {
                          $("body").append('My ID is' + response.id);
                     });
 
-
+                    /*
                     FB.ui({
                         method: 'share',
                         href: 'https://kangw3n.github.io/facebook/',
@@ -30,14 +31,14 @@ window.fbAsyncInit = function () {
                         method: 'send',
                         link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
                     });
-
-					FB.api('/me/likes', function (response) {
+                */
+				/*	FB.api('/me/likes', function (response) {
 						console.log(response)
                         for (var i = 0; i < response.data.length; i++){
 							console.log(response.data[i].name);
 							}
                     });
-					
+					*/
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
 						$('body').append(str);
@@ -66,7 +67,7 @@ window.fbAsyncInit = function () {
                             window.location.reload();
                         };
                     }, {
-                        scope: 'user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes'
+                        scope: 'user_about_me,user_photos,publish_actions,user_birthday,user_likes'
                     });
                 } else {
                     console.log("this isn't logged in to Facebook.");
