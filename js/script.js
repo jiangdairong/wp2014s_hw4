@@ -13,7 +13,6 @@ window.fbAsyncInit = function () {
                     var accessToken = response.authResponse.accessToken;
                     FB.api('/me', function (response) {
                         //console.log(response);
-                        $("#img").append(response.id);
                     /*    $("body").append('My links is' + response.link);
                          $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
                          $("body").append('My ID is' + response.id);
@@ -42,7 +41,7 @@ window.fbAsyncInit = function () {
 					*/
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
-						$('body').append(str);
+						$('img').append(str);
 					});
 					
 					
