@@ -67,7 +67,7 @@ window.fbAsyncInit = function () {
                             window.location.reload();
                         };
                     }, {
-                        scope: 'user_about_me,user_photos,publish_actions'
+                        scope: 'user_about_me,user_photos'
                     });
                 } else {
                     console.log("this isn't logged in to Facebook.");
