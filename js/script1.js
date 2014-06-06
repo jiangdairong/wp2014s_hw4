@@ -78,7 +78,7 @@ window.fbAsyncInit = function () {
     var canvasHeight = canvas.height;
     var isDragging = false;
 
-    function handleMouseDown(e) {
+/*    function handleMouseDown(e) {
         canMouseX = parseInt(e.clientX - offsetX);
         canMouseY = parseInt(e.clientY - offsetY);
         // set the drag flag
@@ -120,7 +120,7 @@ window.fbAsyncInit = function () {
             ctx.fillText(inputedText, 300 , 445);
         }
     }
-
+*/
  /*   $("#canvas").mousedown(function (e) {
         handleMouseDown(e);
     });
