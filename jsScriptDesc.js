@@ -13,7 +13,8 @@ FB.getLoginStatus(function(response) {
     //呼叫api把圖片放到#preview IMG tag 內
     FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
       var str="<img src="+ response.data.url +">";
-      $('#preview1').attr("src",response.data.url);
+      $("#preview1").append(str);
+      //$('#preview1').attr("src",response.data.url);
     });
   } else if (response.status === 'not_authorized') {
     //要求使用者登入，索取publish_actions權限
