@@ -2,61 +2,60 @@
 這檔案協助你編寫JS，請注意每個code block的使用，若你對自己的javascript很有信心，或是你認為我寫的方式有bug，歡迎自行修改編排
 */
 
-window.fbAsyncInit = function () {//facebook init
-    
+window.fbAsyncInit = function () {
+//facebook init
 //輸入基本的Facebook init的狀態，與Facebook 連接，包括APP ID的設定
-
+  FB.init({
+    appId:'425373804271654', 
+    xfbml: true,
+    version: 'v2.0'
+});
 
 
 FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
+  if (response.status === 'connected') {
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+    FB.api('/me', function (response) {
+      FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
+        var str="<img src="+ response.data.url +">";
+        //$("#preview1").append(str);
+        $('#preview1').attr("src",response.data.url);
+      });
+      FB.api('/me/photos', 'post', {
+        name:"test",
+        message: 'this is parse photo',
+        url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
+      }, function (response) {
+        if (!response || response.error) {
+          alert('Error occured:' + response);
+          console.log(response);
+        } else {
+          alert('Post ID: ' + response.id);
+        }
+      });
 
-                    var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
-                    FB.api('/me', function (response) {
-                   
-          FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-            var str="<img src="+ response.data.url +">";
-            //$("#preview1").append(str);
-                        $('#preview1').attr("src",response.data.url);
-          });
-          
-          
-          
-          FB.api('/me/photos', 'post', {
-            name:"test",
-            message: 'this is parse photo',
-            url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
-          }, function (response) {
-            if (!response || response.error) {
-              alert('Error occured:' + response);
-              console.log(response);
-            } else {
-              alert('Post ID: ' + response.id);
-            }
-          });
-
-                } else if (response.status === 'not_authorized') {
-                    console.log("this user is not authorizied your apps");
-                    FB.login(function (response) {
-                        // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
-                        if (response.authResponse) { // if user login to your apps right after handle an event
-                            window.location.reload();
-                        };
-                    }, {
-                        scope: 'user_photos,publish_actions'
-                    });
-                } else {
-                    console.log("this isn't logged in to Facebook.");
-                    FB.login(function (response) {
-                        if (response.authResponse) {
-                            window.location.reload();
-                        } else {
-                            //alertify.alert('An Error has Occurs,Please Reload your Pages');
-                        }
-                    });
-                }
-            });
+    } else if (response.status === 'not_authorized') {
+      console.log("this user is not authorizied your apps");
+      FB.login(function (response) {
+      // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
+        if (response.authResponse) { // if user login to your apps right after handle an event
+          window.location.reload();
+        };
+      }, {
+        scope: 'user_photos,publish_actions'
+      });
+    } else {
+      console.log("this isn't logged in to Facebook.");
+      FB.login(function (response) {
+        if (response.authResponse) {
+          window.location.reload();
+        } else {
+          //alertify.alert('An Error has Occurs,Please Reload your Pages');
+        }
+      });
+    }
+  });
 };
 
 
