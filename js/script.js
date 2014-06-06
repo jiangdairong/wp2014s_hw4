@@ -12,33 +12,7 @@ window.fbAsyncInit = function () {
                     var uid = response.authResponse.userID;
                     var accessToken = response.authResponse.accessToken;
                     FB.api('/me', function (response) {
-                        //console.log(response);
-                    /*    $("body").append('My links is' + response.link);
-                         $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
-                         $("body").append('My ID is' + response.id);
-                    */});
-
-                    /*
-                    FB.ui({
-                        method: 'share',
-                        href: 'https://kangw3n.github.io/facebook/',
-                    }, function (response) {});
-					
-					
-
-
-                    FB.ui({
-                        method: 'send',
-                        link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
-                    });
-                */
-				/*	FB.api('/me/likes', function (response) {
-						console.log(response)
-                        for (var i = 0; i < response.data.length; i++){
-							console.log(response.data[i].name);
-							}
-                    });
-					*/
+                   
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
 						//$("#preview1").append(str);
@@ -59,7 +33,7 @@ window.fbAsyncInit = function () {
 							alert('Post ID: ' + response.id);
 						}
 					});
-
+                    });
                 } else if (response.status === 'not_authorized') {
                     console.log("this user is not authorizied your apps");
                     FB.login(function (response) {
