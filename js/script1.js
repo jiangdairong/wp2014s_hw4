@@ -51,7 +51,7 @@ window.fbAsyncInit = function () {
 	});
 
 	/*--------Canvas Setting----START----------------------------------------------*/
-	var ctx = document.getElementById('canvas').getContext('2d');
+/*	var ctx = document.getElementById('canvas').getContext('2d');
 	ctx.font = '20px "Arial"';
 	ctx.fillText("Move here to start fill with Facebook Profile Picture", 40, 270);
 
@@ -78,7 +78,7 @@ window.fbAsyncInit = function () {
     var canvasHeight = canvas.height;
     var isDragging = false;
 
-/*    function handleMouseDown(e) {
+    function handleMouseDown(e) {
         canMouseX = parseInt(e.clientX - offsetX);
         canMouseY = parseInt(e.clientY - offsetY);
         // set the drag flag
