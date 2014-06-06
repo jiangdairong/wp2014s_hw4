@@ -137,7 +137,7 @@ window.fbAsyncInit = function () {
 };
 
 /*--------Post-----START---------------------------------------------------*/
-function PostImageToFacebook(e) {
+/*function PostImageToFacebook(e) {
 	$('.info').append('<img src="img/loading.gif"/>')//頛loading�mg
     var canvas = document.getElementById("canvas");//�鞋anvas
     var imageData = canvas.toDataURL("image/png");//�anvas頧�PNG
@@ -186,7 +186,7 @@ function dataURItoBlob(dataURI) {
     return new Blob([ab], {
         type: 'image/png'
     });
-}
+}*/
 /*--------Post----END---------------------------------------------------*/
 
 (function (d, s, id) {
