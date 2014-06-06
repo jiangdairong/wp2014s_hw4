@@ -51,7 +51,7 @@ window.fbAsyncInit = function () {
 	});
 
 	/*--------Canvas Setting----START----------------------------------------------*/
-/*	var ctx = document.getElementById('canvas').getContext('2d');
+	var ctx = document.getElementById('canvas').getContext('2d');
 	ctx.font = '20px "Arial"';
 	ctx.fillText("Move here to start fill with Facebook Profile Picture", 40, 270);
 
@@ -120,8 +120,8 @@ window.fbAsyncInit = function () {
             ctx.fillText(inputedText, 300 , 445);
         }
     }
-*/
- /*   $("#canvas").mousedown(function (e) {
+
+    $("#canvas").mousedown(function (e) {
         handleMouseDown(e);
     });
     $("#canvas").mousemove(function (e) {
@@ -132,7 +132,7 @@ window.fbAsyncInit = function () {
     });
     $("#canvas").mouseout(function (e) {
         handleMouseOut(e);
-    });*/
+    });
 	/*--------Canvas Setting-----END---------------------------------------------------*/
 };
 

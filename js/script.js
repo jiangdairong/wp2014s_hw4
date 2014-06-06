@@ -1,23 +1,23 @@
 
 window.fbAsyncInit = function () {
-            FB.init({
-                appId:'425373804271654', 
-                xfbml: true,
-                version: 'v2.0'
-            });
+    FB.init({
+        appId:'425373804271654', 
+        xfbml: true,
+        version: 'v2.0'
+    });
 
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
 
-                    var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
-                    FB.api('/me', function (response) {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+            FB.api('/me', function (response) {
                    
-					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-						var str="<img src="+ response.data.url +">";
-						//$("#preview1").append(str);
-                        $('#preview1').attr("src",response.data.url);
-					});
+				FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
+					var str="<img src="+ response.data.url +">";
+					$('#preview1').append(str);
+                    //$('#preview1').attr("src",response.data.url);
+				});
 					
 					
 					
@@ -33,28 +33,28 @@ window.fbAsyncInit = function () {
 							alert('Post ID: ' + response.id);
 						}
 					});*/
-                    });
-                } else if (response.status === 'not_authorized') {
-                    console.log("this user is not authorizied your apps");
-                    FB.login(function (response) {
-                        // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
-                        if (response.authResponse) { // if user login to your apps right after handle an event
-                            window.location.reload();
-                        };
-                    }, {
-                        scope: 'user_photos,publish_actions'
-                    });
-                } else {
-                    console.log("this isn't logged in to Facebook.");
-                    FB.login(function (response) {
-                        if (response.authResponse) {
-                            window.location.reload();
-                        } else {
-                            //alertify.alert('An Error has Occurs,Please Reload your Pages');
-                        }
-                    });
-                }
             });
+        } else if (response.status === 'not_authorized') {
+            console.log("this user is not authorizied your apps");
+            FB.login(function (response) {
+            // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
+                if (response.authResponse) { // if user login to your apps right after handle an event
+                    window.location.reload();
+                };
+            }, {
+                scope: 'user_photos,publish_actions'
+            });
+        } else {
+            console.log("this isn't logged in to Facebook.");
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    window.location.reload();
+                } else {
+                    //alertify.alert('An Error has Occurs,Please Reload your Pages');
+                }
+           });
+        }
+    });
 
 
 //以下為canvas的程式碼，基本上不需多動，依據comments修改即可
