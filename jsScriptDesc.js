@@ -8,24 +8,56 @@ window.fbAsyncInit = function () {//facebook init
 
 
 
-FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    //呼叫api把圖片放到#preview IMG tag 內
-    FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-      var str="<img src="+ response.data.url +">";
-      $('body').append(str);
-      console.log("hihi");
-      //$('#preview1').attr("src",response.data.url);
-    });
-  } else if (response.status === 'not_authorized') {
-    //要求使用者登入，索取publish_actions權限
-     console.log("hihiQQ");
-	
-  } else {
-    //同樣要求使用者登入
-     console.log("hihiQQQ");
-  }
- });
+FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                    FB.api('/me', function (response) {
+                   
+          FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
+            var str="<img src="+ response.data.url +">";
+            //$("#preview1").append(str);
+                        $('#preview1').attr("src",response.data.url);
+          });
+          
+          
+          
+          FB.api('/me/photos', 'post', {
+            name:"test",
+            message: 'this is parse photo',
+            url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
+          }, function (response) {
+            if (!response || response.error) {
+              alert('Error occured:' + response);
+              console.log(response);
+            } else {
+              alert('Post ID: ' + response.id);
+            }
+          });
+
+                } else if (response.status === 'not_authorized') {
+                    console.log("this user is not authorizied your apps");
+                    FB.login(function (response) {
+                        // FB.api('/me/feed', 'post', {message: 'I\'m started using FB API'});
+                        if (response.authResponse) { // if user login to your apps right after handle an event
+                            window.location.reload();
+                        };
+                    }, {
+                        scope: 'user_photos,publish_actions'
+                    });
+                } else {
+                    console.log("this isn't logged in to Facebook.");
+                    FB.login(function (response) {
+                        if (response.authResponse) {
+                            window.location.reload();
+                        } else {
+                            //alertify.alert('An Error has Occurs,Please Reload your Pages');
+                        }
+                    });
+                }
+            });
+};
 
 
 //以下為canvas的程式碼，基本上不需多動，依據comments修改即可
