@@ -41,7 +41,7 @@ window.fbAsyncInit = function () {
 					*/
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
-						$('body').append("str");
+						$('body').append(str);
 					});
 					
 					
