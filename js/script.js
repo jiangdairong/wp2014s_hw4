@@ -13,10 +13,10 @@ window.fbAsyncInit = function () {
                     var accessToken = response.authResponse.accessToken;
                     FB.api('/me', function (response) {
                         //console.log(response);
-                        $("body").append('My links is' + response.link);
+                    /*    $("body").append('My links is' + response.link);
                          $("body").append('My Username is' + response.username); document.getElementsByTagName('body').innerHTML = ""
                          $("body").append('My ID is' + response.id);
-                    });
+                    */});
 
                     /*
                     FB.ui({
@@ -80,15 +80,15 @@ window.fbAsyncInit = function () {
                     });
                 }
             });
-        }; //<<<<<<<<<<<<<<<init end
+}; //<<<<<<<<<<<<<<<init end
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
