@@ -95,7 +95,7 @@ window.fbAsyncInit = function () {
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
       // clear the drag flag
-      isDragging=false;
+      isDragging=true;
       console.log(isDragging);
     }
 
