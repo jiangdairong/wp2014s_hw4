@@ -47,7 +47,7 @@ window.fbAsyncInit = function () {
 */
             FB.api('/me/picture?type=large', function(response) {  // normal/large/squere
                 //var str="<img src="+ response.data.url +">";
-                $('#profile').attr("src",response.data.url);
+                $('#preview1').attr("src",response.data.url);
             });
 
                     
@@ -152,7 +152,7 @@ window.fbAsyncInit = function () {
         if (isDragging) {
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-            var profileIMG = document.getElementById("profile");
+            var profileIMG = document.getElementById("preview1");
             profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
             
             ctx.drawImage(profileIMG , canMouseX , canMouseY );
@@ -179,7 +179,7 @@ window.fbAsyncInit = function () {
     // canvas.onmousewheel=canvas.onwheel=function(event){//chrome firefox浏览器兼容
     // var pos=windowToCanvas(canvas,event.clientX,event.clientY);
     // event.wheelDelta=event.wheelDelta?event.wheelDelta:(event.deltaY*(-40));
-    var profileIMG = document.getElementById("profile");
+    var profileIMG = document.getElementById("preview1");
     console.log("scale = " + profileIMG );
     profileIMG.imgScale *= 2;
     //profileIMG.imgX = profileIMG.imgX * 2 - profileIMG.pos.x;
