@@ -1,7 +1,7 @@
 // JavaScript Document
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '566549573460943', //api 2.0 nccu web test
+        appId: '425373804271654', //api 2.0 nccu web test
         xfbml: true,
         version: 'v2.0'
     });
