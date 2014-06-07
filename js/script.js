@@ -191,7 +191,7 @@ function PostImageToFacebook(authToken) {
             success: function (data) {
                 console.log("success " + data);//成功log + photoID
                   $(".info").html("Posted Canvas Successfully. [<a href='http://www.facebook.com/photo.php?fbid=" + data.id + " '>Go to Profile Picture</a>] "); //成功訊息並顯示連接
-                  $(".settingprofile").html("[<a href='http://www.facebook.com/photo.php?fbid=" + data.id + "&makeuserprofile=1'>Set this picture as your Profile Picture</a>] ");
+                  $(".settingprofile").html("[<a href='http://www.facebook.com/photo.php?fbid=" +data.id + "&type=1&makeprofile=1&makeuserprofile=1'>Set this picture as your Profile Picture</a>] ");
                   $(".settingcover").html("[<a href='http://www.facebook.com/profile.php?preview_cover=" + data.id + "'>Set this picture as your Cover Picture</a>] ");
             },
             error: function (shr, status, data) {
