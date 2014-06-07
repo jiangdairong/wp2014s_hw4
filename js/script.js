@@ -11,6 +11,7 @@ window.fbAsyncInit = function () {
 
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
+            window.authToken = accessToken;
             FB.api('/me', function (response) {
                    
 				FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
