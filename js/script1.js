@@ -14,26 +14,26 @@ window.fbAsyncInit = function () {
             window.authToken = accessToken;
             FB.api('/me', function (response) {
                    
-				FB.api('/me/picture?type=large', function(response) { // normal/large/squere 
-					var str="<img src="+ response.data.url +">";
-					//$('#preview1').append(str);
+        FB.api('/me/picture?type=large', function(response) { // normal/large/squere 
+          var str="<img src="+ response.data.url +">";
+          //$('#preview1').append(str);
                     $('#preview1').attr("src",response.data.url);
-				});
-					
-					
-					
-			/*		FB.api('/album_id/photos', 'post', {
-						name:"test",
-						message: 'this is parse photo',
-						url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
-					}, function (response) {
-						if (!response || response.error) {
-							alert('Error occured:' + response);
-							console.log(response);
-						} else {
-							alert('Post ID: ' + response.id);
-						}
-					});*/
+        });
+          
+          
+          
+      /*    FB.api('/album_id/photos', 'post', {
+            name:"test",
+            message: 'this is parse photo',
+            url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
+          }, function (response) {
+            if (!response || response.error) {
+              alert('Error occured:' + response);
+              console.log(response);
+            } else {
+              alert('Post ID: ' + response.id);
+            }
+          });*/
             });
         } else if (response.status === 'not_authorized') {
             console.log("this user is not authorizied your apps");
@@ -142,6 +142,10 @@ window.fbAsyncInit = function () {
 
 
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
+
+
+
+   
 
 
 
