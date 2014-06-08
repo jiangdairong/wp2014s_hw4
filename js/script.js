@@ -110,6 +110,7 @@ window.fbAsyncInit = function () {
     function handleMouseMove(e){//滑鼠移動的event
       canMouseX=parseInt(e.clientX-offsetX);
       canMouseY=parseInt(e.clientY-offsetY);
+      console.log(canMouseX,canMouseY);
       // if the drag flag is set, clear the canvas and draw the image
       if(isDragging){ //當拖拉為True時
             ctx.clearRect(0,0,canvasWidth,canvasHeight); //移除canvas起始的內容
