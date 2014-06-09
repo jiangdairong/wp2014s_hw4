@@ -133,19 +133,15 @@ window.fbAsyncInit = function () {
             ctx.drawImage(img,200,400); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
              if(uploaded === true){
                 ctx.drawImage(image4, 0 , 0 , image4.width, image4.height);
-                ctx.fillText(inputedText, 160 , 400);
             }
             else if(document.getElementById("selectid").value === "frame_1"){
                 ctx.drawImage(img1, 0 , 0);
-                ctx.fillText(inputedText, 160 , 400);
             }
             else if(document.getElementById("selectid").value === "frame_2"){
                 ctx.drawImage(img2, 0 , 0);
-                ctx.fillText(inputedText, 210 , 375);
             }
             else if(document.getElementById("selectid").value === "frame_3"){
                 ctx.drawImage(img3, 0 , 0);
-                ctx.fillText(inputedText, 135 , 400);
             }
             var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
             ctx.fillStyle = "black"; //字體顏色
@@ -185,8 +181,7 @@ function render(src){
             }  
             var ctx = canvas.getContext("2d");  
             // clear canvas  
-            ctx.clearRect(0, 0, canvas.width, canvas.height);  
-               
+            ctx.clearRect(0, 0, canvas.width, canvas.height);                 
             ctx.drawImage(image4, 0, 0, image4.width, image4.height); 
         };  
     image4.src = src;  
