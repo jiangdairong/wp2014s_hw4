@@ -172,12 +172,32 @@ function change_select () {
     uploaded = false;
 }
 
+function render(src){  
+        image4 = new Image(); 
+        // execute after loading image  
+        image.onload = function(){  
+            var canvas = document.getElementById("canvas");  
+            // if image height > 540  
+            if(image4.height > 540) {  
+                // width 蝑�靘� *=  
+                image4.width *= 540 / image.height;  
+                image4.height = 540;  
+            }  
+            var ctx = canvas.getContext("2d");  
+            // clear canvas  
+            ctx.clearRect(0, 0, canvas.width, canvas.height);  
+               
+            ctx.drawImage(image4, 0, 0, image4.width, image4.height); 
+        };  
+    image4.src = src;  
+}; 
+
 function uploadimg(files){
     console.log(files[0]);
     console.log(files[0].type);
     uploaded = true;
 
-    if(files[0].type === "image/png" || files[0].type === "image/jpeg" || files[0].type === "image/gif" || files[0].type === "image/bmp"){
+    if(files[0].type === "image/png"){
         var reader = new FileReader();
         reader.onload = function(e){  
             // use render function  
