@@ -169,15 +169,44 @@ function getMyAlbum(response) {
 
     $("#albumGET").remove();
 
-FB.api('/me/albums?fields=id,name', function(response) {
-  for (var i = 0; i < response.data.length; i++) {
+    FB.api('/me/albums?fields=id,name', function(response) {
+    for (var i = 0; i < response.data.length; i++) {
     var album = response.data[i];
-    // window.album = album;
-    // console.log(album);
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
-}});
+    }});
+    /*FB.api('/'+album.id+'/photos', function(photos){
+        if (photos && photos.data && photos.data.length){
+            for (var j=0; j<photos.data.length; j++){
+                var photo = photos.data[j];
+                var preview1 = document.createElement('img');
+                preview1.crossOringin="anonymous";�
+                preview1.src = photo.picture;
+                $("#photo").append("<img id="+photo.id + " src=" + image.src + " crossOringin=" + "anonymous�"  + " class="+ "\"img\"" +" width=" + photo.width/4 +" height=" + photo.height/4 + " onClick=" + "photoClick(" + photo.id + ")" + ">");
+                                // console.log(image.src);
+            }
+        }
+    });*/
+    var e=this.options[this.selectedIndex].value;
+    var t=e+"/photos";
+    FB.api(t,function(e){
+        for(var t=0;t<e.data.length;t++){
+            var n=e.data[t].id;var r=e.data[t].name;
+            var i='<option id="photoID" value='+n+">"+r+"</option>";
+            $("#photo").append(i);$("#photo").prop("selectedIndex",-1)}
+        })
+ 
 };
+
+
+
+
+
+
+
+
+
+
 
 
 
