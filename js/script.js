@@ -168,6 +168,10 @@ window.fbAsyncInit = function () {
 
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
 
+function change_select () {
+    uploaded = false;
+}
+
 function uploadimg(files){
     console.log(files[0]);
     console.log(files[0].type);
