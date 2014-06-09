@@ -176,14 +176,14 @@ function getMyAlbum(response) {
 
     }});
 
-    var selected=album.id;
+/*    var selected=album.id;
     FB.api('/'+album.id+'/photos',function(selected){
         for(var t=0;t<selected.data.length;t++){
             $("#photo").append("<option id=" +photoID + "value="selected.data[t].id +">"+selected.data[t].name+"</option>");
             $("#photo").prop("selectedIndex",-1)
         }
     })
- 
+*/ 
 };
 
 
