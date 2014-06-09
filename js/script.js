@@ -1,4 +1,6 @@
 
+var uploaded = false;
+var image4 = new Image();
 window.fbAsyncInit = function () {
     FB.init({
         appId:'425373804271654', 
@@ -64,12 +66,19 @@ window.fbAsyncInit = function () {
     var ctx = document.getElementById('canvas').getContext('2d'); //宣告變數找到頁面的canvas標籤的2d內容
     ctx.font='20px "Arial"'; //設定字體與大小
     ctx.fillText("Click here to start fill with Facebook Profile Picture", 40, 270); //設定預設的開始畫面
-    var img = new Image(); // 新增圖像1
+ /*   var img = new Image(); // 新增圖像1
     img.src = "img/overlay.png"; //圖像路徑（路徑自己設，且自己加入想要的圖層）
     var img2 = new Image(); //新增圖像2
-    img2.src = "img/overlayback.png" //圖像路徑
-    var img3 = new Image();//新增圖像3
-    img3.src = "img/typography.png"//圖像路徑
+    img2.src = "img/overlayback.png" //圖像路徑*/
+    
+    var img  = new Image();//新增文字圖層
+    img.src = "img/typography.png"//圖像路徑
+    var img1 = new Image();//新增frame圖層 
+    img1.src = "img/frame_1.png" 
+    var img2 = new Image();//新增frame圖層 
+    img2.src = "img/frame_2.png"    
+    var img3 = new Image();//新增frame圖層 
+    img3.src = "img/frame_3.png"
     
     
 
@@ -121,8 +130,27 @@ window.fbAsyncInit = function () {
             //canvas.height = profileIMG.height;
             
             ctx.drawImage(profileIMG,canMouseX-(profileIMG.width/2),canMouseY-(profileIMG.height/2));//從XY軸0，0值開始畫如profileimg
-            ctx.drawImage(img3,200,400); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
-            ctx.drawImage(img2,0,0); //劃入img2
+            ctx.drawImage(img,200,400); //劃入img3，並根據你的滑鼠游標移動，你可以自行更換想要移動的圖層，數值會因XY軸向有所不同
+             if(uploaded === true){
+                ctx.drawImage(image4, 0 , 0 , image4.width, image4.height);
+                ctx.drawImage(img, 125 , 350 ); //word
+                ctx.fillText(inputedText, 160 , 400);
+            }
+            else if(document.getElementById("selectid").value === "frame_1"){
+                ctx.drawImage(img1, 0 , 0);
+                ctx.drawImage(img, 125 , 350 ); //word
+                ctx.fillText(inputedText, 160 , 400);
+            }
+            else if(document.getElementById("selectid").value === "frame_2"){
+                ctx.drawImage(img2, 0 , 0);
+                ctx.drawImage(img, 175 , 325 ); //word
+                ctx.fillText(inputedText, 210 , 375);
+            }
+            else if(document.getElementById("selectid").value === "frame_3"){
+                ctx.drawImage(img3, 0 , 0);
+                ctx.drawImage(img, 100 , 350 ); //word
+                ctx.fillText(inputedText, 135 , 400);
+            }
             var inputedText = $('#inputed').val();//抓取頁面inputed ID的內容
             ctx.fillStyle = "black"; //字體顏色
             ctx.font='20px "微軟正黑體"'; //字體大小和字形
@@ -144,7 +172,23 @@ window.fbAsyncInit = function () {
 
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
 
+function uploadimg(files){
+    console.log(files[0]);
+    console.log(files[0].type);
+    uploaded = true;
 
+    if(files[0].type === "image/png" || files[0].type === "image/jpeg" || files[0].type === "image/gif" || files[0].type === "image/bmp"){
+        var reader = new FileReader();
+        reader.onload = function(e){  
+            // use render function  
+            render(e.target.result);  
+        }; 
+        reader.readAsDataURL(files[0]);
+    }
+    else{
+        alert("Wrong file type. \nMust be an 'png' image type.");
+    }
+}
 
    
 

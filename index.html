@@ -31,12 +31,15 @@
          <canvas width="540" height="540" id="canvas"></canvas>
     </section>
 
-        選擇相框：
+        Select Pattern:
         <select id="selectid" onchange="change_select()">
             <option value="frame_1">Frame 1</option>
             <option value="frame_2">Frame 2</option>
             <option value="frame_3">Frame 3</option>
         </select>
+        <br>上傳其他圖層：
+        <input type="file" id="upload" size="20" onchange="uploadimg(this.files)"/>
+
 
     <div class="inputtext" style="width:600px; margin:0 auto;">
         <label for="inputed">輸入客製化文字：
