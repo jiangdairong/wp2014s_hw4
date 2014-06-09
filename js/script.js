@@ -187,14 +187,12 @@ function getMyAlbum(response) {
             }
         }
     });*/
-    var e=this.options[this.selectedIndex].value;
-    var t=e+"/photos";
-    FB.api(t,function(e){
-        for(var t=0;t<e.data.length;t++){
-            var n=e.data[t].id;var r=e.data[t].name;
-            var i='<option id="photoID" value='+n+">"+r+"</option>";
-            $("#photo").append(i);$("#photo").prop("selectedIndex",-1)}
-        })
+    FB.api('/'+album.id+'/photos',function(album.id){
+        for(var t=0;t<album.id.data.length;t++){
+            $("#photo").append("<option id=" +photoID + "value="album.id.data[t].id +">"+album.id.data[t].name+"</option>");
+            $("#photo").prop("selectedIndex",-1)
+        }
+    })
  
 };
 
