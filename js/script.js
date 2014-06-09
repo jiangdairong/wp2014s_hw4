@@ -192,7 +192,7 @@ function render(src){
     image4.src = src;  
 }; 
 
-function uploadimg(files){
+function setImage(files){
     console.log(files[0]);
     console.log(files[0].type);
     uploaded = true;
