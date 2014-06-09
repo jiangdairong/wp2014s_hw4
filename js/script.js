@@ -175,7 +175,7 @@ function change_select () {
 function render(src){  
         image4 = new Image(); 
         // execute after loading image  
-        image.onload = function(){  
+        image4.onload = function(){  
             var canvas = document.getElementById("canvas");  
             // if image height > 540  
             if(image4.height > 540) {  
