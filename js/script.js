@@ -165,6 +165,22 @@ window.fbAsyncInit = function () {
 
 }; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<init end
 
+function getMyAlbum(response) {
+
+    $("#albumGET").remove();
+
+FB.api('/me/albums?fields=id,name', function(response) {
+  for (var i = 0; i < response.data.length; i++) {
+    var album = response.data[i];
+    // window.album = album;
+    // console.log(album);
+    $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
+
+}});
+};
+
+
+
 function change_select () {
     uploaded = false;
 }
