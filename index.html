@@ -37,11 +37,13 @@
             <option value="frame_2">Frame 2</option>
             <option value="frame_3">Frame 3</option>
         </select>
-        <br>上傳其他圖層：
-        <input type="file" id="upload" size="20" onchange="setImage(this.files)"/>
-
+        <br>
 
     <div class="inputtext" style="width:600px; margin:0 auto;">
+        <label for="input">上傳其他圖層：
+            <input type="file" id="upload" size="20" onchange="setImage(this.files)"/>
+        </label> <span style="font-size:10px">*建議大小：560x560</span>
+        <br>
         <label for="inputed">輸入客製化文字：
             <textarea name="inputed" maxlength="6" id="inputed" placeholder="限輸6字"></textarea><!-- 提供使用者輸入文字欄-->
         </label>
