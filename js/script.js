@@ -175,26 +175,15 @@ function getMyAlbum(response) {
     $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
     }});
-    /*FB.api('/'+album.id+'/photos', function(photos){
-        if (photos && photos.data && photos.data.length){
-            for (var j=0; j<photos.data.length; j++){
-                var photo = photos.data[j];
-                var preview1 = document.createElement('img');
-                preview1.crossOringin="anonymous";�
-                preview1.src = photo.picture;
-                $("#photo").append("<img id="+photo.id + " src=" + image.src + " crossOringin=" + "anonymous�"  + " class="+ "\"img\"" +" width=" + photo.width/4 +" height=" + photo.height/4 + " onClick=" + "photoClick(" + photo.id + ")" + ">");
-                                // console.log(image.src);
-            }
-        }
-    });*/
-  /*  var selected=album.id;
+
+    var selected=album.id;
     FB.api('/'+album.id+'/photos',function(selected){
         for(var t=0;t<selected.data.length;t++){
             $("#photo").append("<option id=" +photoID + "value="selected.data[t].id +">"+selected.data[t].name+"</option>");
             $("#photo").prop("selectedIndex",-1)
         }
     })
- */
+ 
 };
 
 
