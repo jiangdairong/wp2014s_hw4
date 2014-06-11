@@ -171,7 +171,7 @@ function getMyAlbum(response) {
             for(var t=0;t<e.data.length;t++){
                 $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
 
-
+                photoprofile=false;
                 if(photoprofile===false){
                     $('#preview1').attr("src",e.data[t].url);
                     var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
