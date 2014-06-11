@@ -168,12 +168,12 @@ function getMyAlbum(response) {
     $("#albumGET").remove();
 
     FB.api('/me/albums?fields=id,name', function(response) {
-    for (var i = 0; i < response.data.length; i++) {
-        var album = response.data[i];
-        $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
+        for (var i = 0; i < response.data.length; i++) {
+            var album = response.data[i];
+            $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
-    }
-});
+        }
+    });
 
     $("#album").change(function(){
         var e=this.options[this.selectedIndex].value;
@@ -184,20 +184,18 @@ function getMyAlbum(response) {
             }
         });
     };
+}
 
 function change_select () {
     uploaded = false;
 }
 
 function render(src){  
-        image4 = new Image(); 
-        // execute after loading image  
+        image4 = new Image();  
         image4.onload = function(){  
-            var canvas = document.getElementById("canvas");  
-            // if image height > 540  
-            if(image4.height > 540) {  
-                // width 蝑�靘� *=  
-                image4.width *= 540 / image.height;  
+            var canvas = document.getElementById("canvas");   
+            if(image4.height > 540 || image4.width>540) {  
+                image4.width = 540 ;  
                 image4.height = 540;  
             }  
             var ctx = canvas.getContext("2d");  
