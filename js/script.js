@@ -119,6 +119,10 @@ window.fbAsyncInit = function () {
             }            
 
             var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
+            if(profileIMG.height > 540 || profileIMG.width>540) {  
+                profileIMG.width = 540 ;  
+                profileIMG.height = 540;  
+            }
             profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面，CORS Policy請參考https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image 
             ctx.drawImage(profileIMG,canMouseX-(profileIMG.width/2),canMouseY-(profileIMG.height/2));//從XY軸0，0值開始畫如profileimg
 
