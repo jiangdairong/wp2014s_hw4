@@ -172,7 +172,7 @@ function getMyAlbum(response) {
             for(var t=0;t<e.data.length;t++){
                 $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
                 $('#preview1').attr("src",e.data[t].url);
-                console.log(e.data[t].url);
+                console.log("ccc",e.data[t].url);
             }
         });
     });
