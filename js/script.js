@@ -20,7 +20,12 @@ window.fbAsyncInit = function () {
 				FB.api('/me/picture?type=large', function(response) { // normal/large/squere 
 					var str="<img src="+ response.data.url +">";
 					//$('#preview1').append(str);
-                    $('#preview1').attr("src",response.data.url);
+                    if(photoprofile === true){
+                        $('#preview1').attr("src",response.data.url);
+                    }
+                    else{
+                        $('#preview1').attr("src",previewurl);
+                    }
 				});
             });
         } else if (response.status === 'not_authorized') {
@@ -173,9 +178,7 @@ function getMyAlbum(response) {
 
                 photoprofile=false;
                 if(photoprofile===false){
-                    $('#preview1').attr("src",e.data[t].url);
-                    var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
-                    profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面
+                    window.previewurl=e.data[t].url;
                 }
                 console.log("photo",photoprofile);
             }
