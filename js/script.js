@@ -172,6 +172,12 @@ function getMyAlbum(response) {
             for(var t=0;t<e.data.length;t++){
                 $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
 
+
+
+                $('#preview1').attr("src",response.data.url);
+                var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
+            profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面
+            }
         });
     });
 };
