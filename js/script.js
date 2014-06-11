@@ -18,11 +18,7 @@ window.fbAsyncInit = function () {
             FB.api('/me', function (response) {
                    
 				FB.api('/me/picture?type=large', function(response) { // normal/large/squere 
-					var str="<img src="+ response.data.url +">";
-					//$('#preview1').append(str);
-
-                        $('#preview1').attr("src",response.data.url);
-
+                    $('#preview1').attr("src",response.data.url);
 				});
             });
         } else if (response.status === 'not_authorized') {
@@ -171,8 +167,8 @@ function getMyAlbum(response) {
             console.log(e);
             for(var t=0;t<e.data.length;t++){
                 $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
-                $('#preview1').attr("src",e.data[t].id.url);
-                console.log("ccc",e.data[t].id.url);
+                $('#preview1').attr("src",e.data[t].images[0].source);
+                console.log("ccc",e.data[t].images[0].source);
             }
         });
     });
