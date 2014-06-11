@@ -21,21 +21,6 @@ window.fbAsyncInit = function () {
 					//$('#preview1').append(str);
                     $('#preview1').attr("src",response.data.url);
 				});
-					
-					
-					
-			/*		FB.api('/album_id/photos', 'post', {
-						name:"test",
-						message: 'this is parse photo',
-						url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg"//如果要init運行只能用絕對絕對路徑
-					}, function (response) {
-						if (!response || response.error) {
-							alert('Error occured:' + response);
-							console.log(response);
-						} else {
-							alert('Post ID: ' + response.id);
-						}
-					});*/
             });
         } else if (response.status === 'not_authorized') {
             console.log("this user is not authorizied your apps");
@@ -176,6 +161,7 @@ function getMyAlbum(response) {
     });
 
     $("#album").change(function(){
+        $("#photo").html(" ");
         var e=this.options[this.selectedIndex].value;
         console.log(e)
         var t= e+"/photos";
@@ -184,8 +170,14 @@ function getMyAlbum(response) {
         FB.api(t,function(e){
             console.log(e);
             for(var t=0;t<e.data.length;t++){
-                $("#photo").append("<option id="+e.data[t].id+">"+e.data[t].name+"</option>");
-            }
+                $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
+
+
+
+                $('#preview1').attr("src",e.data[t].url);
+                var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
+                profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面
+                ctx.drawImage(profileIMG,canMouseX-(profileIMG.width/2),canMouseY-(profileIMG.height/2));
         });
     });
 };
