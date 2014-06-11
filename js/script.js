@@ -176,7 +176,7 @@ function getMyAlbum(response) {
     });
 
     $("#album").change(function(){
-        var e=this.options[this.selectedIndex].value;
+        var e=this.options[this.selectedIndex].id;
         console.log(e)
         var t= e+"/photos";
                 console.log(t)
