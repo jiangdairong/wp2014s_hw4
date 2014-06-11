@@ -169,24 +169,21 @@ function getMyAlbum(response) {
 
     FB.api('/me/albums?fields=id,name', function(response) {
     for (var i = 0; i < response.data.length; i++) {
-    var album = response.data[i];
-    $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
+        var album = response.data[i];
+        $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
 
-    }});
+    }
+});
 
-/*    var selected=album.id;
-    FB.api('/'+album.id+'/photos',function(selected){
-        for(var t=0;t<selected.data.length;t++){
-            $("#photo").append("<option id=" +photoID + "value="selected.data[t].id +">"+selected.data[t].name+"</option>");
-            $("#photo").prop("selectedIndex",-1)
-        }
-    })
-*/ 
-};
-
-
-
-
+    $("#album").change(function(){
+        var e=this.options[this.selectedIndex].value;
+        var t=e+"/photos";
+        FB.api(t,function(e){
+            for(var t=0;t<e.data.length;t++){
+                $("#photo").append("<option id="+e.data[t].id+">"+e.data[t].name+"</option>");
+            }
+        });
+    };
 
 function change_select () {
     uploaded = false;
