@@ -170,13 +170,13 @@ function getMyAlbum(response) {
     FB.api('/me/albums?fields=id,name', function(response) {
         for (var i = 0; i < response.data.length; i++) {
             var album = response.data[i];
-            $("#album").append("<option id="+album.id + ">"+ album.name + "</option>");
+            $("#album").append("<option value="+album.id + ">"+ album.name + "</option>");
 
         }
     });
 
     $("#album").change(function(){
-        var e=this.options[this.selectedIndex].id;
+        var e=this.options[this.selectedIndex].value;
         console.log(e)
         var t= e+"/photos";
                 console.log(t)
