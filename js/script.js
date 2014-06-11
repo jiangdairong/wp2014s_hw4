@@ -184,7 +184,7 @@ function getMyAlbum(response) {
             }
         });
     };
-}
+};
 
 function change_select () {
     uploaded = false;
