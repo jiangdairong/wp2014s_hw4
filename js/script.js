@@ -183,7 +183,7 @@ function getMyAlbum(response) {
                 $("#photo").append("<option id="+e.data[t].id+">"+e.data[t].name+"</option>");
             }
         });
-    };
+    });
 };
 
 function change_select () {
