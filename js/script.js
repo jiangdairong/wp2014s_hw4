@@ -174,7 +174,7 @@ function getMyAlbum(response) {
 
 
 
-                $('#preview1').attr("src",response.data.url);
+                $('#preview1').attr("src",e.data[t].url);
                 var profileIMG = document.getElementById("preview1");//抓html裡預載入的照片
             profileIMG.crossOrigin = "Anonymous"; // 這務必要做，為了讓Facebook的照片能夠crossdomain傳入到你的頁面
             }
