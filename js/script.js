@@ -171,8 +171,8 @@ function getMyAlbum(response) {
             console.log(e);
             for(var t=0;t<e.data.length;t++){
                 $("#photo").append("<option value="+e.data[t].id+">"+e.data[t].name+"</option>");
-                $('#preview1').attr("src",e.data[t].url);
-                console.log("ccc",e.data[t].url);
+                $('#preview1').attr("src",e.data[t].id.url);
+                console.log("ccc",e.data[t].id.url);
             }
         });
     });
